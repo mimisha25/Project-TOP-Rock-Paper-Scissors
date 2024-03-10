@@ -8,7 +8,7 @@ let computerCard = 0;
 let roundCard = 0;
 let coSelection=["rock", "paper", "scissor"];
 let computerSelection =coSelection[Math.floor(Math.random()*coSelection.length)];
-div.addEventListener("click", divF);
+
 
 const divF = e => {
     let playerSelection = e.target.nodeName === 'BUTTON';
@@ -30,3 +30,4 @@ const divF = e => {
     plScore.innerHTML=playerCard;
     coScore.innerHTML=computerCard;
 }
+div.addEventListener("click", divF);
