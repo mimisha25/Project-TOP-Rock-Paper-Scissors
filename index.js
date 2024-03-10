@@ -1,37 +1,32 @@
-const rock = document.querySelector(".rock");
-const paper = document.querySelector(".paper");
-const scissor = document.querySelector(".scissor");
+let plScore = document.querySelector(".your-score");
+let coScore = document.querySelector(".computer-score");
+let round = document.querySelector(".round");
+const result = document.querySelector(".result");
+const div = document.querySelector(".buttons");
+let playerCard = 0;
+let computerCard = 0;
+let roundCard = 0;
+let coSelection=["rock", "paper", "scissor"];
+let computerSelection =coSelection[Math.floor(Math.random()*coSelection.length)];
+div.addEventListener("click", divF);
 
-const selection=["rock", "paper", "scissor"];
-const computerSelection =selection[Math.floor(Math.random()*selection.length)];
-
-  
-rock.addEventListener("click",function rock(){
-    if (computerSelection === "rock"){
-        document.querySelector("h1").innerHTML ="You both chose the same option so Win-Win!";
-    }else if(computerSelection === "scissor"){
-        document.querySelector("h1").innerHTML ="Computer chose Scissor and your choice was Rock so You are winner!";
-    }else if(computerSelection === "paper"){
-        document.querySelector("h1").innerHTML ="Sorry, you have lost! Computer chose Paper and you choice was Rock";
-    }
-})
-
-paper.addEventListener("click",function paper(){
-    if (computerSelection === "paper"){
-        document.querySelector("h1").innerHTML ="You both chose the same option so Win-Win!";
-    }else if(computerSelection === "rock"){
-        document.querySelector("h1").innerHTML ="Computer chose Rock and your choice was Paper so You are winner!";
-    }else if(computerSelection === "scissor"){
-        document.querySelector("h1").innerHTML = "Sorry, you have lost! Computer chose Scissor and you choice was Paper";
-    }
-}) 
- 
-scissor.addEventListener("click",function scissor(){
-    if (computerSelection === "scissor"){
-        document.querySelector("h1").innerHTML ="You both chose the same option so Win-Win!";
-    }else if(computerSelection === "paper"){
-        document.querySelector("h1").innerHTML ="Computer chose Paper and your choice was Scissor so You are winner!";
-    }else if(computerSelection === "rock"){
-        document.querySelector("h1").innerHTML ="Sorry, you have lost! Computer chose Rock and you choice was Scissor";
-    }
-})
+const divF = e => {
+    let playerSelection = e.target.nodeName === 'BUTTON';
+    if(e.target.id === "rock" && computerSelection === "rock" ||
+             e.target.id === "paper" && computerSelection === "paper" ||
+             e.target.id === "scissor" && computerSelection === "scissor" ){
+             result.innerHTML="win win";
+    }else if(e.target.id === "rock" && computerSelection === "scissor" || 
+             e.target.id === "scissor" && computerSelection === "paper" ||
+             e.target.id === "paper" && computerSelection === "rock"){
+             result.innerHTML="You win";
+             playerCard++;
+    }else if(e.target.id === "rock" && computerSelection === "paper" || 
+             e.target.id === "scissor" && computerSelection === "rock" ||
+             e.target.id === "paper" && computerSelection === "scissor"){
+             result.innerHTML="You'have lost"
+             computerCard++;
+}
+    plScore.innerHTML=playerCard;
+    coScore.innerHTML=computerCard;
+}
