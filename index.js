@@ -1,48 +1,76 @@
 let plScore = document.querySelector(".your-score");
 let coScore = document.querySelector(".computer-score");
-const result = document.querySelector(".result");
+const presult = document.querySelector(".playerResult");
+const cresult = document.querySelector(".computerResult");
 const div = document.querySelector(".buttons");
 let playerCard = 0;
 let computerCard = 0;
 let playerSelection;
-
-let coSelection = ["rock", "paper", "scissor"] ;
+let coSelection = ["Rock", "Paper", "Scissor"];
 
 const divF = e => {
     e.target.nodeName === 'BUTTON';
     let playerSelection = e.target.id;
     let computerSelection = coSelection[Math.floor(Math.random() * 3)];
-    if(playerSelection === "rock" && computerSelection === "rock" ||
-    playerSelection === "paper" && computerSelection === "paper" ||
-    playerSelection === "scissor" && computerSelection === "scissor" ){
-    }else if(playerSelection === "rock" && computerSelection === "scissor" || 
-    playerSelection === "scissor" && computerSelection === "paper" ||
-    playerSelection === "paper" && computerSelection === "rock"){
-    playerCard++;
-    }else if(playerSelection === "rock" && computerSelection === "paper" || 
-    playerSelection === "scissor" && computerSelection === "rock" ||
-    playerSelection === "paper" && computerSelection === "scissor"){
-    computerCard++;
-}
-if(computerCard == 10) {
-alert("You lost! Better luck next time :(");
-reset();
-} else if (playerCard == 10) {
-alert("You won! Congratulations! :)")
-reset();
-}
-    plScore.innerHTML=playerCard;
-    coScore.innerHTML=computerCard;
-    result.innerHTML=`Your choice ${playerSelection}. Computer choice ${computerSelection}`
-    }
-div.addEventListener("click", divF);
-    
+    if (playerSelection === "Rock" && computerSelection === "Rock" ||
+        playerSelection === "Paper" && computerSelection === "Paper" ||
+        playerSelection === "Scissor" && computerSelection === "Scissor") {
 
-    function reset() { 
-        playerCard = 0;
-        computerCard = 0;
-        plScore.innerHTML = "0";
-        coScore.innerHTML = "0";
-        result.innerHTML = "";
+    } else if (playerSelection === "Rock" && computerSelection === "Scissor" ||
+        playerSelection === "scissor" && computerSelection === "Paper" ||
+        playerSelection === "Paper" && computerSelection === "Rock") {
+        playerCard++;
+
+    } else if (playerSelection === "Rock" && computerSelection === "Paper" ||
+        playerSelection === "Scissor" && computerSelection === "Rock" ||
+        playerSelection === "Paper" && computerSelection === "Scissor") {
+        computerCard++;
+
     }
-    
+    if (computerCard == 10) {
+        reset();
+
+        customAlert();
+    } else if (playerCard == 10) {
+        reset();
+
+        customAlert()
+    }
+
+    plScore.innerHTML = playerCard;
+    coScore.innerHTML = computerCard;
+    presult.innerHTML = `${playerSelection}`;
+    cresult.innerHTML = `${computerSelection}`;
+}
+
+div.addEventListener("click", divF);
+
+
+function reset() {
+    playerCard = 0;
+    computerCard = 0;
+    plScore.innerHTML = "0";
+    coScore.innerHTML = "0";
+}
+
+
+
+function customAlert() {
+    var winW = window.innerWidth;
+    var winH = window.innerHeight;
+    dialogoverlay.style.display = "block";
+    dialogoverlay.style.height = winH + "px";
+    dialogbox.style.left = (winW / 2) - (550 * .5) + "px";
+    dialogbox.style.top = "100px";
+    dialogbox.style.display = "block";
+    dialogbox.style.left = (winW / 2) - (550 * .5) + "px";
+    document.getElementById('dialogboxfoot').innerHTML = '<button onclick="ok()">Play Again</button>';
+}
+
+//Ok button in alert box. This button will turn the page to initial version
+function ok() {
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
+    presult.innerHTML = "";
+    cresult.innerHTML = ""
+}

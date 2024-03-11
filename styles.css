@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap');
+
+* {
+    margin: 0;
+    height: 100%;
+    display: grid;
+    background-color: #ffdd40;
+    font-family: cursive;
+    color: #274dff;
+}
+
+
+h1 {
+    margin-top: -100px;
+    letter-spacing: 0.0015em;
+    font-size: 5em;
+    text-shadow: 0 1px #8da1ff, -1px 0 #c0cbff, -1px 2px #8da1ff, -2px 1px #c0cbff,
+        -2px 3px #8da1ff, -3px 2px #c0cbff, -3px 4px #8da1ff, -4px 3px #c0cbff,
+        -4px 5px #8da1ff, -5px 4px #c0cbff, -5px 6px #8da1ff, -6px 5px #c0cbff,
+        -6px 7px #8da1ff, -7px 6px #c0cbff, -7px 8px #8da1ff, -8px 7px #c0cbff;
+    text-align: center;
+}
+
+h1:hover {
+    font-variation-settings: "wght" 582;
+    letter-spacing: 1px;
+}
+
+.scores {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+
+.score-card {
+    text-align: center;
+
+}
+
+.your-score,
+.computer-score {
+
+
+    font-size: 120px;
+    letter-spacing: 0.1em;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #3040f1;
+    text-shadow:
+        8px 8px #2986e9,
+        20px 20px white;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+
+button {
+    width: 150px;
+    height: 100px;
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #3030f1;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+button:hover {
+    background-color: #0f1ebf
+}
+
+button:active {
+    background-color: #1556cf;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+p {
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.text,
+.playerResult,
+.computerResult {
+    text-align: center;
+    font-size: 3em;
+
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+
+
+
+#dialogoverlay {
+    display: none;
+    opacity: .8;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: #FFF;
+    width: 100%;
+    z-index: 10;
+
+}
+
+#dialogbox {
+    display: none;
+    position: fixed;
+    background: #0846ef;
+    border-radius: 7px;
+    width: 550px;
+    z-index: 10;
+    height: 300px;
+}
+
+#dialogbox>div {
+    background: #FFF;
+    margin: 0px 50px;
+}
+
+#dialogbox>div>#dialogboxhead {
+    background: #f6f232;
+    font-size: 30px;
+    color: #274dff;
+    font-family: cursive;
+    text-align: center;
+
+}
+
+#dialogbox>div>#dialogboxfoot {
+    background: #f6f232;
+    text-align: right;
+    justify-content: center;
+    color: #274dff;
+    font-family: cursive;
+}
