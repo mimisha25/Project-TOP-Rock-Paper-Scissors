@@ -1,13 +1,17 @@
-let plScore = document.querySelector(".your-score");
-let coScore = document.querySelector(".computer-score");
+
+const plScore = document.querySelector(".your-score");
+const coScore = document.querySelector(".computer-score");
 const presult = document.querySelector(".playerResult");
 const cresult = document.querySelector(".computerResult");
 const div = document.querySelector(".buttons");
+const coSelection = ["Rock", "Paper", "Scissor"];
 let playerCard = 0;
 let computerCard = 0;
 let playerSelection;
-let coSelection = ["Rock", "Paper", "Scissor"];
 
+
+
+// Make short and put in one function players selections + result of play + scores update + reset
 const divF = e => {
     e.target.nodeName === 'BUTTON';
     let playerSelection = e.target.id;
@@ -15,25 +19,20 @@ const divF = e => {
     if (playerSelection === "Rock" && computerSelection === "Rock" ||
         playerSelection === "Paper" && computerSelection === "Paper" ||
         playerSelection === "Scissor" && computerSelection === "Scissor") {
-
     } else if (playerSelection === "Rock" && computerSelection === "Scissor" ||
         playerSelection === "scissor" && computerSelection === "Paper" ||
         playerSelection === "Paper" && computerSelection === "Rock") {
         playerCard++;
-
     } else if (playerSelection === "Rock" && computerSelection === "Paper" ||
         playerSelection === "Scissor" && computerSelection === "Rock" ||
         playerSelection === "Paper" && computerSelection === "Scissor") {
         computerCard++;
-
     }
     if (computerCard == 10) {
         reset();
-
         customAlert();
     } else if (playerCard == 10) {
         reset();
-
         customAlert()
     }
 
@@ -42,10 +41,9 @@ const divF = e => {
     presult.innerHTML = `${playerSelection}`;
     cresult.innerHTML = `${computerSelection}`;
 }
-
 div.addEventListener("click", divF);
 
-
+// Reset scores.
 function reset() {
     playerCard = 0;
     computerCard = 0;
@@ -54,7 +52,7 @@ function reset() {
 }
 
 
-
+//Open alert box. Designed and positioned on the page.
 function customAlert() {
     var winW = window.innerWidth;
     var winH = window.innerHeight;
