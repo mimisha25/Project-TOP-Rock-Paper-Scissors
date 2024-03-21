@@ -20,12 +20,6 @@ h1 {
         -6px 7px #8da1ff, -7px 6px #c0cbff, -7px 8px #8da1ff, -8px 7px #c0cbff;
     text-align: center;
 }
-
-h1:hover {
-    font-variation-settings: "wght" 582;
-    letter-spacing: 1px;
-}
-
 p {
     text-align: center;
     font-size: 1.8em;
@@ -105,24 +99,23 @@ button:active {
 
 
 /* Popup Alert Box */
-#dialogoverlay {
+#dialogoverlay,
+#dialogbox{
     display: none;
-    opacity: .8;
     position: fixed;
+    z-index: 10; 
+}
+#dialogoverlay{
+    opacity: .8;
     top: 0px;
     left: 0px;
     background: #FFF;
     width: 100%;
-    z-index: 10;
 }
-
 #dialogbox {
-    display: none;
-    position: fixed;
     background: #0846ef;
     border-radius: 7px;
     width: 550px;
-    z-index: 10;
     height: 300px;
 }
 
@@ -131,18 +124,17 @@ button:active {
     margin: 0px 50px;
 }
 
-#dialogbox>div>#dialogboxhead {
+#dialogbox>div>#dialogboxhead,
+#dialogbox>div>#dialogboxfoot{
     background: #f6f232;
-    font-size: 30px;
     color: #274dff;
     font-family: cursive;
-    text-align: center;
 }
-
+#dialogbox>div>#dialogboxhead{
+    text-align: center;
+    font-size: 30px;
+}
 #dialogbox>div>#dialogboxfoot {
-    background: #f6f232;
     text-align: right;
     justify-content: center;
-    color: #274dff;
-    font-family: cursive;
 }
